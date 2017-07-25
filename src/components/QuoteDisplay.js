@@ -6,6 +6,7 @@ export class QuoteDisplay extends React.Component {
     return (
       <div id="quote-display">
         <p>{this.props.currentQuote}</p>
+        <p>{this.props.currentAuthor}</p>
       </div>
     );
   }

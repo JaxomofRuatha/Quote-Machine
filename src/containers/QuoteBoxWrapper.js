@@ -4,8 +4,10 @@ import { QuoteBox } from "../components/QuoteBox";
 export class QuoteBoxWrapper extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
-    this._newQuote = this._newQuote.bind(this);
+    this.state = {
+      requestFailed: false
+    }
+    //this._newQuote = this._newQuote.bind(this);
   }
 
   _newQuote() {
@@ -30,15 +32,16 @@ export class QuoteBoxWrapper extends React.Component {
       //.then(d => d.json())
       .then(d => {
         this.setState({
-          quoteData: d
+          currentQuote: d.quoteText,
+          currentAuthor: d.quoteAuthor
         })
-      }).catch(err => {
+      })
+      .catch(err => {
           this.setState({
             requestFailed: true
         })
           console.log(err);
         })
-    console.log(this.state.quoteData);
 
     if (this.state.requestFailed) {
       return this.setState (<p>Cannot retrieve new quote :(</p>)
