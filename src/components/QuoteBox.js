@@ -14,7 +14,7 @@ export class QuoteBox extends React.Component {
           currentAuthor={this.props.currentAuthor}
         />
         <div id="bottom-bar">
-          <QuoteButton onClick={this.props._newQuote} />
+          <QuoteButton getQuote={this.props.getQuote} />
           <SocialButtons />
         </div>
       </div>

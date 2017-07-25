@@ -1,26 +1,27 @@
 import React from "react";
 import { QuoteBox } from "../components/QuoteBox";
 
+const quoteurl = "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=?";
+const options = {
+  cache: "default",
+  dataType: "json",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  method: "GET",
+  mode: "cors"
+};
+
 export class QuoteBoxWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       requestFailed: false
     }
-    //this._newQuote = this._newQuote.bind(this);
+    this._newQuote = this._newQuote.bind(this);
   }
 
   _newQuote() {
-    const quoteurl = "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=?";
-    const options = {
-      cache: "default",
-      dataType: "json",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: "GET",
-      mode: "cors"
-    };
 
     fetch(quoteurl, options)
       .then(response => {
@@ -40,8 +41,7 @@ export class QuoteBoxWrapper extends React.Component {
           this.setState({
             requestFailed: true
         })
-          console.log(err);
-        })
+      })
 
     if (this.state.requestFailed) {
       return this.setState (<p>Cannot retrieve new quote :(</p>)
