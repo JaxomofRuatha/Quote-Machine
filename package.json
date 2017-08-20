@@ -4,8 +4,8 @@
   "private": true,
   "homepage": "https://jaxomofruatha.github.io/Quote-Machine/",
   "repository": {
-   "type": "git",
-   "url": "https://github.com/JaxomofRuatha/Quote-Machine"
+    "type": "git",
+    "url": "https://github.com/JaxomofRuatha/Quote-Machine"
   },
   "dependencies": {
     "gh-pages": "^1.0.0",

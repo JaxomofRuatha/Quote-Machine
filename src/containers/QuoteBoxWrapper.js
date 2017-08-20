@@ -1,4 +1,5 @@
 import React from "react";
+import * as APIHelpers from "./utils/APIHelpers";
 import { QuoteBox } from "../components/QuoteBox";
 
 const quoteurl = "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=?";
@@ -16,53 +17,42 @@ export class QuoteBoxWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      requestFailed: false
+      error: null,
+      currentAuthor: ""
     }
     this._newQuote = this._newQuote.bind(this);
   }
 
-  _newQuote() {
+  _newQuote = () => {
 
-    fetch(quoteurl, options)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Quote request failed");
-        }
-        return response.json();
-      })
-      //.then(d => d.json())
-      .then(d => {
-        this.setState({
-          currentQuote: d.quoteText,
-          currentAuthor: d.quoteAuthor
-        })
-      })
-      .catch(err => {
-          this.setState({
-            requestFailed: true
-        })
-      })
+    const url = "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=?";
 
-    if (this.state.requestFailed) {
-      return this.setState (<p>Cannot retrieve new quote :(</p>)
-    }
+    APIHelpers.apiSkeleton(url, APIHelpers.options, this._onQuoteSuccess, this._onQuoteFail);
+  }
 
-    if (!this.state.currentQuote) {
-      return this.setState (<p>Loading...</p>)
-    }
+  _onQuoteSuccess = (res) => {
+    this.setState({
+      currentQuote: res.quoteText,
+      currentAuthor: res.quoteAuthor
+    })
+  }
+
+  _onQuoteFail = (error) => {
+    this.setState({
+      currentQuote: "Cannot retrieve new quote :(",
+      error: new Error("Cannot retrieve new quote :(")
+    })
   }
 
   componentDidMount() {
     this._newQuote();
   }
 
-
-
   render() {
-    return <QuoteBox
+    return (<QuoteBox
       currentQuote={this.state.currentQuote}
       currentAuthor={this.state.currentAuthor}
       getQuote={this._newQuote}
-    />;
-  }
+    />);
+    }
 }
