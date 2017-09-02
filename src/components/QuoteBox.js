@@ -14,11 +14,11 @@ export class QuoteBox extends React.Component {
           currentAuthor={this.props.currentAuthor}
         />
         <div id="bottom-bar">
-          <QuoteButton getQuote={this.props.getQuote} />
           <SocialButtons
             currentQuote={this.props.currentQuote}
             currentAuthor={this.props.currentAuthor}
-          />
+          />  
+          <QuoteButton getQuote={this.props.getQuote} />
         </div>
       </div>
     );
