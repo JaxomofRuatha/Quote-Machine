@@ -1,44 +1,38 @@
 html, body {
   text-align: center;
   box-sizing: border-box;
-  background-color: gold;
-  font-family: "Spectral", serif;
-}
+  background-color: #FFF689;
+  font-family: "Spectral", serif; }
 
-#main-box {
-  background-color: grey;
+#quote-box {
+  background-color: #7AE7C7;
   max-width: 60%;
   margin: 30vh auto 0 auto;
   border-radius: 10px;
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 #quote-display {
   height: 100px;
-  background-color: purple;
-  color: white;
+  background-color: #58355E;
+  color: #D6FFB7;
   text-align: right;
-  padding: 20px;
-}
+  padding: 20px; }
 
 #current-quote {
   text-align: center;
-  font-size: 1.9vw;
-}
+  font-size: 1.9vw; }
 
 #bottom-bar {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-}
+  padding: 10px; }
 
 #new-quote {
   border-radius: 10px;
   border-width: 0;
-}
+  background: transparent; }
 
 .sm-icon {
   max-width: 40px;
-  padding: 5px;
-}
+  padding: 5px; }

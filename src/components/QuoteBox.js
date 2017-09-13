@@ -7,7 +7,7 @@ export class QuoteBox extends React.Component {
 
   render () {
     return (
-      <div id="main-box">
+      <div id="quote-box">
         <h1>Your wisdom for today...</h1>
         <QuoteDisplay
           currentQuote={this.props.currentQuote}

@@ -1,0 +1,51 @@
+$colorbg: #FFF689;
+$colorbox: #58355E;
+$coloroutline: #7AE7C7;
+$colortext: #D6FFB7;
+$colorbutton: #EC0B43;
+
+html, body {
+  text-align: center;
+  box-sizing: border-box;
+  background-color: $colorbg;
+  font-family: "Spectral", serif;
+}
+
+#quote-box {
+  background-color: $coloroutline;
+  max-width: 60%;
+  margin: 30vh auto 0 auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#quote-display {
+  height: 100px;
+  background-color: $colorbox;
+  color: $colortext;
+  text-align: right;
+  padding: 20px;
+}
+
+#current-quote {
+  text-align: center;
+  font-size: 1.9vw;
+}
+
+#bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#new-quote {
+  border-radius: 10px;
+  border-width: 0;
+  background: transparent;
+}
+
+.sm-icon {
+  max-width: 40px;
+  padding: 5px;
+}
