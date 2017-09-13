@@ -17,7 +17,7 @@ html, body {
   justify-content: space-between; }
 
 .quote-display {
-  background-color: #58355E;
+  background-color: #673e6e;
   color: #D6FFB7;
   text-align: right;
   padding: 0 2em; }
@@ -40,16 +40,18 @@ html, body {
       padding: 0.2em 1em; }
   .bottom-bar .quote-button {
     outline: 0;
-    height: 3rem;
+    height: 2.5rem;
     width: 6rem;
-    border-top-right-radius: 3.5rem;
-    border-top-left-radius: 3.5rem;
     border: 3px solid #7AE7C7;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     font-size: 2em;
     border-bottom: 0;
     position: absolute;
     background: transparent;
-    color: #EC0B43; }
+    color: #EC0B43;
+    transition: all 0.2s;
+    padding: 0; }
     .bottom-bar .quote-button:hover {
       background-color: #7AE7C7;
       color: #58355E; }
