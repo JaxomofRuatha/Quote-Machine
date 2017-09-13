@@ -3,24 +3,20 @@ import { QuoteButton } from "./QuoteButton";
 import { SocialButtons } from "./SocialButtons";
 import { QuoteDisplay } from "./QuoteDisplay";
 
-export class QuoteBox extends React.Component {
-
-  render () {
-    return (
-      <div id="quote-box">
-        <h1>Your wisdom for today...</h1>
-        <QuoteDisplay
-          currentQuote={this.props.currentQuote}
-          currentAuthor={this.props.currentAuthor}
-        />
-        <div id="bottom-bar">
-          <SocialButtons
-            currentQuote={this.props.currentQuote}
-            currentAuthor={this.props.currentAuthor}
-          />  
-          <QuoteButton getQuote={this.props.getQuote} />
-        </div>
+export const QuoteBox = (props) => {
+  return (
+    <div className="quote-box">
+      <QuoteDisplay
+        currentQuote={props.currentQuote}
+        currentAuthor={props.currentAuthor}
+      />
+      <div className="bottom-bar">
+        <SocialButtons
+          currentQuote={props.currentQuote}
+          currentAuthor={props.currentAuthor}
+        />  
+        <QuoteButton getQuote={props.getQuote} />
       </div>
-    );
-  }
+    </div>
+  );
 }

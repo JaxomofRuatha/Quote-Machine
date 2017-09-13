@@ -1,17 +1,14 @@
 import React from 'react';
 
-export class QuoteDisplay extends React.Component {
-
-  render () {
-    return (
-      <div id="quote-display">
-        <div id="current-quote"> 
-          <p>{this.props.currentQuote}</p>
-        </div> 
-        <div>
-          <p>{this.props.currentAuthor}</p>
-        </div>   
-      </div>
-    );
-  }
+export const QuoteDisplay = (props) => {
+  return (
+    <div className="quote-display">
+      <div className="quote-display__current"> 
+        <p>{props.currentQuote}</p>
+      </div> 
+      <div>
+        <p>-- {props.currentAuthor}</p>
+      </div>   
+    </div>
+  );
 }

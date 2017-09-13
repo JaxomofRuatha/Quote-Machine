@@ -1,10 +1,7 @@
 import React from 'react';
 
-export class QuoteButton extends React.Component {
-
-  render () {
-    return (
-      <button id="new-quote" onClick={this.props.getQuote}>New Quote</button>
-    );
-  }
+export const QuoteButton = (props) => {
+  return (
+    <button className="quote-button" onClick={props.getQuote}> <strong>>></strong> </button>
+  );
 }
