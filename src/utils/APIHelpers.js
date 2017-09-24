@@ -1,13 +1,3 @@
-export const options = {
-    cache: "default",
-    dataType: "jsonp",
-    headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-    },
-    method: "GET",
-    mode: "cors"
-}
-
 export function checkStatus(response) {
     if (!response.ok) {
         const error = new Error(response.statusText || response.status);

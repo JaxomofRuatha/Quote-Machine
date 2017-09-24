@@ -1,24 +1,23 @@
 html, body {
+  transition: all 0.3s;
   text-align: center;
   box-sizing: border-box;
-  background-color: #FFF689;
-  font-family: "Spectral", serif; }
+  font-family: "Spectral", serif;
+  height: 100%;
+  width: 100%; }
 
 .quote-box {
-  background-color: #58355E;
   max-width: 60vw;
   min-height: 30vh;
   margin: 30vh auto 0 auto;
-  border: 0.2em solid #7AE7C7;
-  border-top: 1em solid #7AE7C7;
+  border: 0.2em solid;
+  border-top: 1em solid;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
 
 .quote-display {
-  background-color: #673e6e;
-  color: #D6FFB7;
   text-align: right;
   padding: 0 2em; }
   .quote-display .quote-display__current {
@@ -42,16 +41,12 @@ html, body {
     outline: 0;
     height: 2.5rem;
     width: 6rem;
-    border: 3px solid #7AE7C7;
+    border: 3px solid;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-size: 2em;
     border-bottom: 0;
     position: absolute;
     background: transparent;
-    color: #EC0B43;
     transition: all 0.2s;
     padding: 0; }
-    .bottom-bar .quote-button:hover {
-      background-color: #7AE7C7;
-      color: #58355E; }

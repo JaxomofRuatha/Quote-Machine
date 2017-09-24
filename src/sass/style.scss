@@ -1,23 +1,18 @@
-$colorbg: #FFF689;
-$colorbox: #58355E;
-$coloroutline: #7AE7C7;
-$colortext: #D6FFB7;
-$colorbutton: #EC0B43;
-
 html, body {
+  transition: all 0.3s;
   text-align: center;
   box-sizing: border-box;
-  background-color: $colorbg;
   font-family: "Spectral", serif;
+  height: 100%;
+  width: 100%;
 }
 
 .quote-box {
-  background-color: $colorbox;
   max-width: 60vw;
   min-height: 30vh;
   margin: 30vh auto 0 auto;
-  border: 0.2em solid $coloroutline;
-  border-top: 1em solid $coloroutline;
+  border: 0.2em solid;
+  border-top: 1em solid;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -25,8 +20,6 @@ html, body {
 }
 
 .quote-display {
-  background-color: lighten($colorbox, 5%);
-  color: $colortext;
   text-align: right;
   padding: 0 2em;
   .quote-display__current {
@@ -54,19 +47,14 @@ html, body {
     outline: 0;
     height: 2.5rem;
     width: 6rem;
-    border: 3px solid $coloroutline;
+    border: 3px solid;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-size: 2em;
     border-bottom: 0;
     position: absolute;
     background: transparent;
-    color: $colorbutton;
     transition: all 0.2s;
     padding: 0;
-    &:hover {
-      background-color: $coloroutline;
-      color: $colorbox;
-    }
   }
 }
