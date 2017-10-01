@@ -36,29 +36,19 @@ export class App extends React.Component {
   }
 
   _onQuoteSuccess = (res) => {
-    const theme = {
-      colorbg: themeSet.colorbg,
-      colorbox: themeSet.colorbox,
-      coloroutline: themeSet.coloroutline,
-      colortext: themeSet.colortext,
-      colorbutton: themeSet.colorbutton
-    };
-
+    const theme = Math.floor(Math.random() * themeSet.length);
     this.setState({
       currentQuote: res.quoteText,
       currentAuthor: res.quoteAuthor,
-      theme
+      theme: themeSet[theme]
     }, () => {
       document.body.style.backgroundColor = this.state.theme.colorbg;
     });
   }
 
   _onQuoteFail = (error) => {
-    this.setState({
-      currentQuote: "Cannot retrieve new quote :( Try Again!",
-      currentAuthor: "",
-      error: new Error("Cannot retrieve new quote :(")
-    });
+    console.warn(error);
+    this._newQuote();
   }
 
   componentDidMount() {

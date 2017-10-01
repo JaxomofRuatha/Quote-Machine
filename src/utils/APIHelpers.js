@@ -43,39 +43,6 @@ export function apiSkeleton(url, options, onRequestSuccess, onRequestFail) {
             onRequestSuccess(res);
         })
         .catch((error) => {
-            console.warn(error);
             onRequestFail(error);
         });
 }
-/*
-export function apiSkeleton(url, options, onRequestSuccess, onRequestFail) {
-    fetch(url, options)
-        .then(_checkStatus).catch((error) => {
-            throw error;
-        })
-        .then((response) => response.json())
-        .then((json) => {
-            onRequestSuccess(json);
-        })
-        .catch((error) => {
-            const response = error.response;
-            if (response === undefined) {
-                onRequestFail(error);
-            } else {
-                error.status = response.status;
-                error.statusText = response.statusText;
-                response.text()
-                    .then((text) => {
-                        try {
-                            const json = JSON.parse(text);
-                            error.message = json.message;
-                        } catch (ex) {
-                            error.message = text;
-                        }
-                        onRequestFail(error);
-                    });
-            }
-        });
-
-    }
-*/
