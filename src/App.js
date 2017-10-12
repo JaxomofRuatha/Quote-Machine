@@ -3,7 +3,7 @@ import * as APIHelpers from "./utils/APIHelpers";
 import { QuoteBox } from "./components/QuoteBox";
 import { themeSet } from "./utils/themes";
 
-export class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,10 +11,10 @@ export class App extends React.Component {
       currentAuthor: "",
       theme: {
         colorbg: "#FFF689",
-        colorbox: "#58355E",
+        colorboxbg: "#58355E",
         coloroutline: "#7AE7C7",
         colortext: "#D6FFB7",
-        colorbutton: "#EC0B43"
+        colorarrow: "#EC0B43"
       }
     }
   }
