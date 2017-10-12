@@ -1,4 +1,4 @@
-export const themeSet = [{
+const themeSet = [{
   colorbg: '#1982C4',
   colorboxbg: '#FFCA3A',
   coloroutline: '#6A4C93',
@@ -23,3 +23,5 @@ export const themeSet = [{
   colortext: '#1D1128',
   colorarrow: '#6D72C3'
 }];
+
+export default themeSet;

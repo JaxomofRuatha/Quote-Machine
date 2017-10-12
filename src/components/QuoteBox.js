@@ -1,9 +1,11 @@
 import React from 'react';
-import { QuoteButton } from './QuoteButton';
-import { SocialButtons } from './SocialButtons';
-import { QuoteDisplay } from './QuoteDisplay';
+import PropTypes from 'prop-types';
 
-export default const QuoteBox = props => (
+import QuoteButton from './QuoteButton';
+import SocialButtons from './SocialButtons';
+import QuoteDisplay from './QuoteDisplay';
+
+const QuoteBox = props => (
   <div
     className="quote-box"
     style={{
@@ -27,3 +29,24 @@ export default const QuoteBox = props => (
     </div>
   </div>
 );
+
+QuoteBox.propTypes = {
+  currentQuote: PropTypes.string,
+  currentAuthor: PropTypes.string,
+  getQuote: PropTypes.func.isRequired,
+  theme: PropTypes.objectOf(PropTypes.string)
+};
+
+QuoteBox.defaultProps = {
+  currentQuote: 'Loading...',
+  currentAuthor: '',
+  theme: {
+    colorbg: '#FFF689',
+    colorboxbg: '#58355E',
+    coloroutline: '#7AE7C7',
+    colortext: '#D6FFB7',
+    colorarrow: '#EC0B43'
+  }
+};
+
+export default QuoteBox;

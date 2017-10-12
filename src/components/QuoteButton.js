@@ -1,5 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+const QuoteButton = props => (
+  <ButtonNext theme={props.theme} onClick={props.getQuote}>
+    <strong>&gt&gt</strong>
+  </ButtonNext>
+);
 
 const ButtonNext = styled.button`
   color: ${props => props.theme.colorarrow};
@@ -22,11 +29,19 @@ const ButtonNext = styled.button`
   }
 `;
 
-export default const QuoteButton = props => (
-  <ButtonNext
-      theme={props.theme}
-      onClick={props.getQuote}
-    >
-      <strong>>></strong>
-    </ButtonNext>
-);
+QuoteButton.propTypes = {
+  getQuote: PropTypes.func.isRequired,
+  theme: PropTypes.objectOf(PropTypes.string)
+};
+
+QuoteButton.defaultProps = {
+  theme: {
+    colorbg: '#FFF689',
+    colorboxbg: '#58355E',
+    coloroutline: '#7AE7C7',
+    colortext: '#D6FFB7',
+    colorarrow: '#EC0B43'
+  }
+};
+
+export default QuoteButton;
