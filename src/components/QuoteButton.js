@@ -4,19 +4,19 @@ import PropTypes from 'prop-types';
 
 const QuoteButton = props => (
   <ButtonNext theme={props.theme} onClick={props.getQuote}>
-    <strong>&gt&gt</strong>
+    <strong>&gt;&gt;</strong>
   </ButtonNext>
 );
 
 const ButtonNext = styled.button`
   color: ${props => props.theme.colorarrow};
   outline: 0;
-  height: 2.5rem;
-  width: 6rem;
+  height: 3rem;
+  width: 7rem;
   border: 3px solid ${props => props.theme.coloroutline};
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  font-size: 2em;
+  font-size: 2rem;
   border-bottom: 0;
   position: absolute;
   background: transparent;
