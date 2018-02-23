@@ -1,15 +1,12 @@
 import React from 'react';
-import * as APIHelpers from './utils/APIHelpers';
+import apiSkeleton from './utils/api-helpers';
 import QuoteBox from './components/QuoteBox';
 import themeSet from './utils/themes';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentAuthor: '',
-      theme: {}
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -25,35 +22,37 @@ class App extends React.Component {
       },
       method: 'GET'
     };
+    const url =
+      'https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=?';
 
-    const url = 'https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=?';
-
-    APIHelpers.apiSkeleton(url, options, this._onQuoteSuccess, this._onQuoteFail);
-  }
-
-  _onQuoteSuccess = (res) => {
-    const theme = Math.floor(Math.random() * themeSet.length);
-    this.setState({
-      currentQuote: res.quoteText,
-      currentAuthor: res.quoteAuthor,
-      theme: themeSet[theme]
-    }, () => {
-      document.body.style.backgroundColor = this.state.theme.colorbg;
-    });
-  }
-
-  _onQuoteFail = (error) => {
-    console.warn(error);
-    this._newQuote();
-  }
+    apiSkeleton(url, options)
+      .then((res) => {
+        const theme = Math.floor(Math.random() * themeSet.length);
+        this.setState(
+          {
+            currentQuote: res.quoteText,
+            currentAuthor: res.quoteAuthor,
+            theme: themeSet[theme]
+          },
+          () => {
+            document.body.style.backgroundColor = this.state.theme.colorbg;
+          }
+        );
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
+  };
 
   render() {
-    return (<QuoteBox
-      currentQuote={this.state.currentQuote}
-      currentAuthor={this.state.currentAuthor}
-      getQuote={this._newQuote}
-      theme={this.state.theme}
-    />);
+    return (
+      <QuoteBox
+        currentQuote={this.state.currentQuote}
+        currentAuthor={this.state.currentAuthor}
+        getQuote={this._newQuote}
+        theme={this.state.theme}
+      />
+    );
   }
 }
 

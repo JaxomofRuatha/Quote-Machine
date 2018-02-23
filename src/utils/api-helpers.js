@@ -1,4 +1,4 @@
-export const REQUEST_TIMEOUT_MS = 30000;
+const REQUEST_TIMEOUT_MS = 30000;
 
 const _checkStatus = (res) => {
   if (res.ok) {
@@ -12,7 +12,7 @@ const _checkStatus = (res) => {
   }
 };
 
-export function timedRequest(ms, promise) {
+function timedRequest(ms, promise) {
   return new Promise((resolve, reject) => {
     const timeoutId = setTimeout(() => {
       reject(new Error('Request Timeout'));
@@ -30,19 +30,22 @@ export function timedRequest(ms, promise) {
   });
 }
 
-export function apiSkeleton(url, options, onRequestSuccess, onRequestFail) {
-  if (!url) onRequestFail(new Error('Request url is a required field'));
-  if (!options) onRequestFail(new Error('Request options is a required field'));
-  const reqOptions = {
-    mode: 'cors',
-    ...options
-  };
-  timedRequest(REQUEST_TIMEOUT_MS, fetch(url, reqOptions))
-    .then(_checkStatus)
-    .then((res) => {
-      onRequestSuccess(res);
-    })
-    .catch((error) => {
-      onRequestFail(error);
-    });
+function apiSkeleton(url, options) {
+  return new Promise((resolve, reject) => {
+    if (!url) reject(new Error('Request url is a required field'));
+    if (!options) reject(new Error('Request options is a required field'));
+    const reqOptions = {
+      mode: 'cors',
+      ...options
+    };
+    timedRequest(REQUEST_TIMEOUT_MS, fetch(url, reqOptions))
+      .then(_checkStatus)
+      .then(resolve)
+      .catch((error) => {
+        console.warn(error);
+        reject(error);
+      });
+  });
 }
+
+export default apiSkeleton;

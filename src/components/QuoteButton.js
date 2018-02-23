@@ -3,16 +3,17 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const QuoteButton = props => (
-  <ButtonNext theme={props.theme} onClick={props.getQuote}>
-    <strong>&gt;&gt;</strong>
-  </ButtonNext>
+  <StyledButton theme={props.theme} onClick={props.getQuote}>
+    &#8667;
+  </StyledButton>
 );
 
-const ButtonNext = styled.button`
+const StyledButton = styled.button`
   color: ${props => props.theme.colorarrow};
   outline: 0;
-  height: 3rem;
   width: 7rem;
+  top: 0.1rem;
+  bottom: 0;
   border: 3px solid ${props => props.theme.coloroutline};
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -20,8 +21,6 @@ const ButtonNext = styled.button`
   border-bottom: 0;
   position: absolute;
   background: transparent;
-  transition: all 0.2s;
-  padding: 0;
   &:hover {
     color: ${props => props.theme.colorboxbg};
     background: ${props => props.theme.coloroutline};

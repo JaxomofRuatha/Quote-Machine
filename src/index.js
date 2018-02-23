@@ -1,6 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { injectGlobal } from 'styled-components';
+
 import App from './App';
-import './css/style.css';
+
+injectGlobal`
+  @font-face {
+    font-family: "Spectral", serif;
+    src: url('https://fonts.googleapis.com/css?family=Spectral')
+  }
+
+  body: {
+  box-sizing: border-box;
+  }
+`;
 
 ReactDOM.render(<App />, document.getElementById('root'));

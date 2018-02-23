@@ -1,34 +1,32 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import QuoteButton from './QuoteButton';
 import SocialButtons from './SocialButtons';
 import QuoteDisplay from './QuoteDisplay';
 
-const QuoteBox = props => (
-  <div
+const QuoteBox = ({
+  theme, currentQuote, currentAuthor, getQuote
+}) => (
+  <StyledBox
     className="quote-box"
     style={{
-      backgroundColor: props.theme.colorboxbg, borderColor: props.theme.coloroutline
+      backgroundColor: theme.colorboxbg,
+      borderColor: theme.coloroutline
     }}
   >
-    <QuoteDisplay
-      currentQuote={props.currentQuote}
-      currentAuthor={props.currentAuthor}
-      theme={props.theme}
-    />
-    <div className="bottom-bar">
-      <SocialButtons
-        currentQuote={props.currentQuote}
-        currentAuthor={props.currentAuthor}
-      />
-      <QuoteButton
-        getQuote={props.getQuote}
-        theme={props.theme}
-      />
-    </div>
-  </div>
+    <QuoteDisplay currentQuote={currentQuote} currentAuthor={currentAuthor} theme={theme} />
+    <nav className="control-bar">
+      <SocialButtons currentQuote={currentQuote} currentAuthor={currentAuthor} />
+      <QuoteButton getQuote={getQuote} theme={theme} />
+    </nav>
+  </StyledBox>
 );
+
+const StyledBox = styled.main`
+  text-align: center;
+`;
 
 QuoteBox.propTypes = {
   currentQuote: PropTypes.string,

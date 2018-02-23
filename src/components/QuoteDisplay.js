@@ -2,13 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
 
-const QuoteDisplay = props => (
-  <div className="quote-display" style={{ backgroundColor: tinycolor(props.theme.colorboxbg).lighten(5).toString(), color: props.theme.colortext }}>
+const QuoteDisplay = ({ theme, currentQuote, currentAuthor }) => (
+  <div
+    className="quote-display"
+    style={{
+      backgroundColor: tinycolor(theme.colorboxbg)
+        .lighten(5)
+        .toString(),
+      color: theme.colortext
+    }}
+  >
     <div className="quote-display__current">
-      <p>{props.currentQuote}</p>
+      <p>{currentQuote}</p>
     </div>
     <div>
-      <p>-- {props.currentAuthor}</p>
+      <p>-- {currentAuthor}</p>
     </div>
   </div>
 );
