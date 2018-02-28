@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const SocialButtons = ({ currentAuthor, currentQuote }) => (
-  <div className="control-bar__social">
+  <StyledSocial className="control-bar__social">
     <a
       href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&caption=${encodeURIComponent(currentAuthor)}&content=${encodeURIComponent(currentQuote)}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`}
     >
@@ -21,8 +22,29 @@ const SocialButtons = ({ currentAuthor, currentQuote }) => (
         alt="Logo for Twitter"
       />
     </a>
-  </div>
+  </StyledSocial>
 );
+
+const StyledSocial = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .control-bar__icon {
+    height: 3rem;
+    max-width: 3rem;
+    padding: 0.3rem 1rem;
+  }
+
+  @media only screen and (max-width: 400px) {
+    .control-bar__icon {
+      height: 1.5rem;
+      max-width: 1.5rem;
+      padding: 0.2rem 0.5rem;
+    }
+  }
+`;
 
 SocialButtons.propTypes = {
   currentQuote: PropTypes.string,
