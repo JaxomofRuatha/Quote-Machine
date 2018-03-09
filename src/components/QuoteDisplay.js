@@ -1,25 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import tinycolor from 'tinycolor2';
 
 const QuoteDisplay = ({ theme, currentQuote, currentAuthor }) => (
-  <div
-    className="quote-display"
-    style={{
-      backgroundColor: tinycolor(theme.colorboxbg)
-        .lighten(5)
-        .toString(),
-      color: theme.colortext
-    }}
-  >
+  <StyledDisplay className="quote-display" theme={theme}>
     <div className="quote-display__current">
       <p>{currentQuote}</p>
     </div>
     <div>
       <p>-- {currentAuthor}</p>
     </div>
-  </div>
+  </StyledDisplay>
 );
+
+const StyledDisplay = styled.main`
+  background-color: ${props =>
+    tinycolor(props.theme.colorboxbg)
+      .lighten(5)
+      .toString()};
+  color: ${props => props.theme.colortext};
+  text-align: right;
+  padding: 0 2rem;
+  flex: 3;
+  font-size: 2rem;
+
+  .quote-display__current {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+`;
 
 QuoteDisplay.propTypes = {
   currentQuote: PropTypes.string,

@@ -1,7 +1,9 @@
 import React from 'react';
+
 import apiSkeleton from './utils/api-helpers';
-import QuoteBox from './components/QuoteBox';
 import themeSet from './utils/themes';
+
+import QuoteBox from './components/QuoteBox';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,13 +12,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this._newQuote();
+    this.newQuote();
   }
 
-  _newQuote = () => {
+  newQuote = () => {
     const options = {
       cache: 'default',
-      dataType: 'jsonp',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
@@ -26,7 +27,7 @@ class App extends React.Component {
       'https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=?';
 
     apiSkeleton(url, options)
-      .then((res) => {
+      .then(res => {
         const theme = Math.floor(Math.random() * themeSet.length);
         this.setState(
           {
@@ -39,7 +40,7 @@ class App extends React.Component {
           }
         );
       })
-      .catch((err) => {
+      .catch(err => {
         console.warn(err);
       });
   };
@@ -49,7 +50,7 @@ class App extends React.Component {
       <QuoteBox
         currentQuote={this.state.currentQuote}
         currentAuthor={this.state.currentAuthor}
-        getQuote={this._newQuote}
+        getQuote={this.newQuote}
         theme={this.state.theme}
       />
     );

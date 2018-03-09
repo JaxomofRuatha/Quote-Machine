@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Installing Development Environment
 
-Clone or download this repository to your machine, and from the new root directory of the local files, run `npm start`.
+Clone or download this repository to your machine, run `npm install` from the new root directory to locally install dependencies, and run `npm start` to initiate the watch procedure for Sass and start the React development server.
 
 ## Running Tests
 

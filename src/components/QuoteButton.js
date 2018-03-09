@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const QuoteButton = props => (
   <StyledButton theme={props.theme} onClick={props.getQuote}>
@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   color: ${props => props.theme.colorarrow};
   outline: 0;
   width: 7rem;
-  top: 0.1rem;
+  height: 3rem;
   bottom: 0;
   border: 3px solid ${props => props.theme.coloroutline};
   border-top-left-radius: 5px;
