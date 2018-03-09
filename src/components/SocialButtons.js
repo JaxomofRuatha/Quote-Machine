@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const SocialButtons = ({ currentAuthor, currentQuote }) => (
-  <StyledNav className="control-bar__social">
+  <StyledSocial className="control-bar__social">
     <a
       href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&caption=${encodeURIComponent(
         currentAuthor
@@ -28,10 +28,10 @@ const SocialButtons = ({ currentAuthor, currentQuote }) => (
         alt="Logo for Twitter"
       />
     </a>
-  </StyledNav>
+  </StyledSocial>
 );
 
-const StyledNav = styled.nav`
+const StyledSocial = styled.div`
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -43,6 +43,14 @@ const StyledNav = styled.nav`
     height: 3rem;
     max-width: 3rem;
     padding: 0.3rem 1rem;
+  }
+
+  @media only screen and (max-width: 400px) {
+    .control-bar__icon {
+      height: 1.5rem;
+      max-width: 1.5rem;
+      padding: 0.2rem 0.5rem;
+    }
   }
 `;
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { injectGlobal } from 'styled-components';
 
 import 'normalize.css';
 import App from './App';
 
+<<<<<<< HEAD
 injectGlobal`
   @font-face {
     font-family: "Spectral", serif;
@@ -17,4 +17,6 @@ injectGlobal`
   }
 `;
 
+=======
+>>>>>>> bd010a3b4bbd7bc8254e6efb8f958cf8e409f33a
 ReactDOM.render(<App />, document.getElementById('root'));

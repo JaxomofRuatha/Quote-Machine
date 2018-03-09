@@ -6,6 +6,7 @@ import QuoteButton from './QuoteButton';
 import SocialButtons from './SocialButtons';
 import QuoteDisplay from './QuoteDisplay';
 
+<<<<<<< HEAD
 const QuoteBox = ({ theme, currentQuote, currentAuthor, getQuote }) => (
   <StyledBox theme={theme}>
     <QuoteDisplay
@@ -13,6 +14,13 @@ const QuoteBox = ({ theme, currentQuote, currentAuthor, getQuote }) => (
       currentAuthor={currentAuthor}
       theme={theme}
     />
+=======
+const QuoteBox = ({
+  theme, currentQuote, currentAuthor, getQuote
+}) => (
+  <StyledBox className="quote-box" theme={theme}>
+    <QuoteDisplay currentQuote={currentQuote} currentAuthor={currentAuthor} theme={theme} />
+>>>>>>> bd010a3b4bbd7bc8254e6efb8f958cf8e409f33a
     <nav className="control-bar">
       <SocialButtons
         currentQuote={currentQuote}
@@ -24,6 +32,7 @@ const QuoteBox = ({ theme, currentQuote, currentAuthor, getQuote }) => (
 );
 
 const StyledBox = styled.main`
+<<<<<<< HEAD
   background: ${props => props.theme.colorboxbg};
   border: 0.2rem solid;
   border-top: 1rem solid;
@@ -33,6 +42,22 @@ const StyledBox = styled.main`
   width: 90%;
   height: 20rem;
   margin: 30vh auto 0 auto;
+=======
+  @font-face {
+    font-family: 'Spectral';
+    src: url('https://fonts.googleapis.com/css?family=Spectral');
+  }
+
+  font-family: 'Spectral';
+  box-sizing: border-box;
+  text-align: center;
+  height: 25%;
+  width: 90%;
+  margin: 30vh auto 0 auto;
+  background: ${props => props.theme.colorboxbg};
+  border: 0.2rem solid ${props => props.theme.coloroutline};
+  border-top: 1rem solid ${props => props.theme.coloroutline};
+>>>>>>> bd010a3b4bbd7bc8254e6efb8f958cf8e409f33a
   border-radius: 5px;
   display: flex;
   flex-direction: column;
