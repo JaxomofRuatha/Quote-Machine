@@ -14,13 +14,8 @@ const QuoteDisplay = ({ theme, currentQuote, currentAuthor }) => (
   </StyledDisplay>
 );
 
-<<<<<<< HEAD
-const StyledDisplay = styled.main`
-  background-color: ${props =>
-=======
 const StyledDisplay = styled.section`
   background: ${props =>
->>>>>>> bd010a3b4bbd7bc8254e6efb8f958cf8e409f33a
     tinycolor(props.theme.colorboxbg)
       .lighten(5)
       .toString()};
@@ -34,8 +29,6 @@ const StyledDisplay = styled.section`
     text-align: center;
     font-size: 2.5rem;
   }
-<<<<<<< HEAD
-=======
 
   @media only screen and (max-width: 600px) {
     font-size: 1rem;
@@ -48,7 +41,6 @@ const StyledDisplay = styled.section`
       font-size: 1.2rem;
     }
   }
->>>>>>> bd010a3b4bbd7bc8254e6efb8f958cf8e409f33a
 `;
 
 QuoteDisplay.propTypes = {

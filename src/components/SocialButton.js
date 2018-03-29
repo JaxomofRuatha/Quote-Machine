@@ -5,11 +5,7 @@ import styled from 'styled-components';
 const SocialButtons = ({ currentAuthor, currentQuote }) => (
   <StyledSocial className="control-bar__social">
     <a
-      href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&caption=${encodeURIComponent(
-        currentAuthor
-      )}&content=${encodeURIComponent(
-        currentQuote
-      )}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`}
+      href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&caption=${encodeURIComponent(currentAuthor)}&content=${encodeURIComponent(currentQuote)}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`}
     >
       <img
         className="control-bar__icon"
@@ -18,9 +14,7 @@ const SocialButtons = ({ currentAuthor, currentQuote }) => (
       />
     </a>
     <a
-      href={`https://twitter.com/intent/tweet?hashtags=quotes&text=${encodeURIComponent(
-        currentQuote
-      )} - ${encodeURIComponent(currentAuthor)}`}
+      href={`https://twitter.com/intent/tweet?hashtags=quotes&text=${encodeURIComponent(currentQuote)} - ${encodeURIComponent(currentAuthor)}`}
     >
       <img
         className="control-bar__icon"
@@ -41,7 +35,6 @@ const StyledSocial = styled.div`
 
   .control-bar__icon {
     height: 3rem;
-    max-width: 3rem;
     padding: 0.3rem 1rem;
   }
 
