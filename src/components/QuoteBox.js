@@ -12,20 +12,15 @@ const QuoteBox = ({
   <StyledBox className="quote-box" theme={theme}>
     <QuoteDisplay currentQuote={currentQuote} currentAuthor={currentAuthor} theme={theme} />
     <nav className="control-bar">
-      <SocialButton currentQuote={currentQuote} currentAuthor={currentAuthor} />
+      <SocialButton currentQuote={currentQuote} currentAuthor={currentAuthor} type="tumblr" />
       <QuoteButton getQuote={getQuote} theme={theme} />
+      <SocialButton currentQuote={currentQuote} currentAuthor={currentAuthor} type="twitter" />
     </nav>
   </StyledBox>
 );
 
 const StyledBox = styled.main`
-  @font-face {
-    font-family: 'Spectral';
-    src: url('https://fonts.googleapis.com/css?family=Spectral');
-  }
-
   font-family: 'Spectral';
-  box-sizing: border-box;
   text-align: center;
   height: 25%;
   width: 90%;

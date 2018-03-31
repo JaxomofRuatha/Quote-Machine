@@ -13,13 +13,11 @@ const StyledButton = styled.button`
   outline: 0;
   width: 7rem;
   height: 3rem;
-  bottom: 0;
   border: 3px solid ${props => props.theme.coloroutline};
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   font-size: 2rem;
   border-bottom: 0;
-  position: absolute;
   background: transparent;
   &:hover {
     color: ${props => props.theme.colorboxbg};

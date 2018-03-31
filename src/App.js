@@ -19,6 +19,7 @@ class App extends React.Component {
   }
 
   newQuote = async () => {
+    this.setState({ loading: true });
     const quoteData = await fetchQuote(apiSkeleton, themeSet);
 
     this.setState(Object.assign({}, quoteData, { loading: false }), () => {
