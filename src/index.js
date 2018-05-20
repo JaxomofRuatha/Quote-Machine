@@ -14,6 +14,11 @@ injectGlobal`
   *, *:after, *:before {
     font-family: 'Spectral';
     box-sizing: border-box;
+    outline: none;
+  }
+
+  body {
+    background-color: lightblue;
   }
 `;
 

@@ -1,10 +1,11 @@
 import React from 'react';
 
 import apiSkeleton from './utils/api-helpers';
-import fetchQuote from './lib/data-fetching';
+import fetchQuote from './api/fetch-quote';
 import themeSet from './utils/themes';
 
 import QuoteBox from './components/QuoteBox';
+import Loading from './components/Loading';
 
 class App extends React.Component {
   constructor(props) {
@@ -30,13 +31,14 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.loading && <h1>Loading...</h1>}
-        {!this.state.loading && (
+        {this.state.loading && !this.state.currentQuote && <Loading />}
+        {this.state.currentQuote && (
           <QuoteBox
             currentQuote={this.state.currentQuote}
             currentAuthor={this.state.currentAuthor}
             getQuote={this.newQuote}
             theme={this.state.theme}
+            loading={this.state.loading}
           />
         )}
       </React.Fragment>
