@@ -11,7 +11,10 @@ const Loading = () => (
 const StyledLoading = styled.div`
   position: fixed;
   top: 35%;
-  left: 50%;
+  width: 100%;
+  text-align: center;
+  font-weight: 200;
+  color: #111;
 `;
 
 export default Loading;

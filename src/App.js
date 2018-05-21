@@ -24,7 +24,7 @@ class App extends React.Component {
     const quoteData = await fetchQuote(apiSkeleton, themeSet);
 
     this.setState(Object.assign({}, quoteData, { loading: false }), () => {
-      document.body.style.backgroundColor = this.state.theme.colorbg;
+      document.body.style.backgroundColor = this.state.theme.colorbg || '#FFF689';
     });
   };
 

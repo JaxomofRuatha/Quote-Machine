@@ -33,17 +33,11 @@ const SocialButtons = ({ currentAuthor, currentQuote, type }) => {
 };
 
 const StyledSocial = styled.a`
-  height: 100%;
+  height: 90%;
 
   .control-bar__icon {
     max-height: 100%;
     padding: 0.3rem 1rem;
-  }
-
-  @media only screen and (max-width: 400px) {
-    .control-bar__icon {
-      height: 1.5rem;
-    }
   }
 `;
 

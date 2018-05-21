@@ -5,12 +5,8 @@ import tinycolor from 'tinycolor2';
 
 const QuoteDisplay = ({ theme, currentQuote, currentAuthor }) => (
   <StyledDisplay className="quote-display" theme={theme}>
-    <div className="quote-display__current">
-      <p>{currentQuote}</p>
-    </div>
-    <div>
-      <p>-- {currentAuthor}</p>
-    </div>
+    <p className="quote-display__quote">{currentQuote}</p>
+    <p className="quote-display__author">-- {currentAuthor}</p>
   </StyledDisplay>
 );
 
@@ -20,24 +16,28 @@ const StyledDisplay = styled.section`
       .lighten(5)
       .toString()};
   color: ${props => props.theme.colortext};
-  text-align: right;
   padding: 0 2rem;
   flex: 3;
-  font-size: 2rem;
 
-  .quote-display__current {
-    text-align: center;
+  .quote-display__quote {
     font-size: 2.5rem;
+    @media screen and (max-width: 600px) {
+      font-size: 2rem;
+    }
+
+    @media screen and (max-width: 400px) {
+      font-size: 1.7rem;
+    }
   }
 
-  @media only screen and (max-width: 600px) {
-    font-size: 1rem;
-  }
+  .quote-display__author {
+    font-size: 2rem;
+    text-align: right;
+    @media screen and (max-width: 600px) {
+      font-size: 1.5rem;
+    }
 
-  @media only screen and (max-width: 400px) {
-    font-size: 0.8rem;
-    
-    .quote-display__current {
+    @media screen and (max-width: 400px) {
       font-size: 1.2rem;
     }
   }

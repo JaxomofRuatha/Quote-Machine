@@ -12,6 +12,7 @@ const StyledButton = styled.button`
   color: ${props => props.theme.colorarrow};
   width: 7rem;
   height: 90%;
+  font-size: 2rem;
   border: 3px solid ${props => props.theme.coloroutline};
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;

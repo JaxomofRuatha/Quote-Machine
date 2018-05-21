@@ -41,6 +41,14 @@ const StyledBox = styled.main`
     position: relative;
     height: 3rem;
   }
+
+  @media screen and (max-width: 1000px) {
+    margin: 20vh auto 0 auto;
+  }
+
+  @media screen and (max-width: 700px) {
+    margin: 10vh auto 0 auto;
+  }
 `;
 
 QuoteBox.propTypes = {
